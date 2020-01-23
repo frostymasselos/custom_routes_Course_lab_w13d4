@@ -16,11 +16,12 @@ public class Booking {
     @Column(name="date")
     private String date;
 
-//    @JsonIgnore
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
