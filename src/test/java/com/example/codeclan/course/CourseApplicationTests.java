@@ -55,4 +55,11 @@ class CourseApplicationTests {
 
 	}
 
+	@Test
+	public void canGetCustomersForGivenCourse () {
+
+		List<Customer> found = customerRepository.findCustomersByBookingsCourseId(1L);
+		assertEquals("Iain", found.get(0).getName());
+	}
+
 }
