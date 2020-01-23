@@ -74,4 +74,10 @@ class CourseApplicationTests {
 		assertEquals(1, found.size());
 	}
 
+	@Test
+	public void canGetCustomersByTownAndBookingsCourseId () {
+		List<Customer> found = customerRepository.findCustomersByTownAndBookingsCourseId("Livingston", 1L);
+		assertEquals(19, found.get(0).getAge());
+	}
+
 }
