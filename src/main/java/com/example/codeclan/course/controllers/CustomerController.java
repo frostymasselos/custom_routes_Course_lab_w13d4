@@ -21,6 +21,7 @@ public class CustomerController {
     @Autowired
     CourseRepository courseRepository;
 
+
     @GetMapping(value="/bookings/courses/{id}")
     public List<Customer> findCustomersByBookingsCourseId(@PathVariable Long id) {
         return customerRepository.findCustomersByBookingsCourseId(id);
@@ -28,6 +29,11 @@ public class CustomerController {
 
     @GetMapping(value="/{town}/bookings/course/{id}")
     public List<Customer> findCustomersByTownAndBookingsCourseId(@PathVariable String town, @PathVariable Long id) {
-        return customerRepository.findCustomersByTownAndBookingsCourseId(town, id); 
+        return customerRepository.findCustomersByTownAndBookingsCourseId(town, id);
+    }
+
+    @GetMapping(value="/{town}/{age}/bookings/course/{id}")
+    public List<Customer> findCustomersByTownAndAgeAndBookingsCourseId(@PathVariable String town, @PathVariable int age, @PathVariable Long id) {
+        return customerRepository.findCustomersByTownAndAgeGreaterThanAndBookingsCourseId(town, age, id);
     }
 }
