@@ -68,4 +68,10 @@ class CourseApplicationTests {
 		assertEquals("Java", found.get(0).getName());
 	}
 
+	@Test
+	public void canGetCourseForGivenDate () {
+		List<Booking> found = bookingRepository.findByDate("13/01/19");
+		assertEquals(1, found.size());
+	}
+
 }
